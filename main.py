@@ -7,7 +7,7 @@ def main():
     # must figure out how to add here credentials to the server
     
     # while True:
-    #     capture = cv2.VideoCapture("https://192.168.1.160:8080/video")
+    #     capture = cv2.VideoCapture("ip")
     #     live, frame = capture.read()
         
     #     is_cat, cat_image = detect_cats(frame)
