@@ -1,7 +1,9 @@
 cameras:
   camera_1:
-    name: ...
-    password: ...
+    url: 0
+    name: unknown
+    password: 2
   camera_2:
-    name: ...
-    password: ...
+    url: 0
+    name: unknown
+    password: 4

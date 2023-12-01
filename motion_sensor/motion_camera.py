@@ -1,39 +1,45 @@
 import cv2
 
-static_back = None
-video = cv2.VideoCapture("ip") 
+def camera_sensor(camera_url: str) -> None:
+    print(f"Starting camera sensor for {camera_url}")
 
-while True: 
-    check, frame = video.read() 
-    motion = 0
+    static_back = None
+    if camera_url == "0":
+        video = cv2.VideoCapture(0) 
+    else:
+        video = cv2.VideoCapture(camera_url) 
 
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
-    gray = cv2.GaussianBlur(gray, (21, 21), 0) 
+    try:
+        while True: 
+            _, frame = video.read() 
 
-    if static_back is None: 
-        static_back = gray 
-        continue
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
+            gray = cv2.GaussianBlur(gray, (21, 21), 0) 
 
-    diff_frame = cv2.absdiff(static_back, gray) 
-    thresh_frame = cv2.threshold(diff_frame, 30, 255, cv2.THRESH_BINARY)[1] 
-    thresh_frame = cv2.dilate(thresh_frame, None, iterations = 2) 
+            if static_back is None: 
+                static_back = gray 
+                continue
 
-    cnts,_ = cv2.findContours(
-        thresh_frame.copy(), 
-	    cv2.RETR_EXTERNAL,
-        cv2.CHAIN_APPROX_SIMPLE
-    ) 
+            diff_frame = cv2.absdiff(static_back, gray) 
+            thresh_frame = cv2.threshold(diff_frame, 30, 255, cv2.THRESH_BINARY)[1] 
+            thresh_frame = cv2.dilate(thresh_frame, None, iterations = 2) 
 
-    if cnts !=  ():
-        print("something found! better check!")
+            cnts,_ = cv2.findContours(
+                thresh_frame.copy(), 
+                cv2.RETR_EXTERNAL,
+                cv2.CHAIN_APPROX_SIMPLE
+            ) 
 
-    cv2.imshow("Gray Frame", gray) 
-    cv2.imshow("Color Frame", frame)
+            if cnts !=  ():
+                print(f"something found! better check! with camera url {camera_url}")
 
-    key = cv2.waitKey(1) 
-    if key == ord('q'): 
-        break
+            cv2.imshow(f"Gray Frame {camera_url}", gray) 
+            cv2.imshow(f"Color Frame {camera_url}", frame)
 
-video.release() 
-
-cv2.destroyAllWindows() 
+            key = cv2.waitKey(1) 
+            if key == ord('q'): 
+                break
+    finally:
+        print(f"Ending camera sensor for {camera_url}")
+        video.release() 
+        cv2.destroyAllWindows() 
