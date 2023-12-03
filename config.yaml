@@ -3,7 +3,7 @@ cameras:
     url: 0
     name: unknown
     password: 2
-  camera_2:
-    url: 0
-    name: unknown
-    password: 4
+  # camera_2:
+  #   url: 0
+  #   name: unknown
+  #   password: 4

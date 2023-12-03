@@ -9,7 +9,7 @@ project_root = Path(__file__).parent
 
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "MarketingMadeEasy"
+    PROJECT_NAME: str = "CatFinder"
     DB_USER: str = Field(..., env="DB_USER")
     DB_PASSWORD: str = Field(..., env="DB_PASSWORD")
     DB_NAME: str = Field(..., env="DB_NAME")
