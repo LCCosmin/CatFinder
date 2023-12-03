@@ -1,8 +1,8 @@
 # About
 
-The aim of this project is to provide a solution for people that keep loosing their cats (yes, I do keep loosing mine in the appartment, and most of the time I spend like 5 minutes at a time searching for her).
+This project aims to provide a solution for people who keep losing their cats (yes, I do keep losing mine in the apartment, and most of the time I spend like 5 minutes at a time searching for her).
 
-This is a basic multithreated application that can work with an infinite ammount of theoretical cameras (capped by hardware restrictions). It is using the YOLO model for object (cat) detection, and a basic motion sensor that is comparing two frames.
+This is a basic multithreaded application that can work with an infinite amount of theoretical cameras (capped by hardware restrictions). It uses the YOLO model for object (cat) detection and a basic motion sensor that compares two frames.
 
 
 # Current Progress
@@ -15,7 +15,7 @@ This is a basic multithreated application that can work with an infinite ammount
 
 ## Planned for later
     * DB that would keep the latest 30 positions of the cat
-    * Androi/Web interface
+    * Android/Web interface
     * Deployment with Docker of the application
 
 
@@ -30,7 +30,7 @@ This is a basic multithreated application that can work with an infinite ammount
     - motion_sensor: motion sensor algorithm
 
 
-# The cat that I keep loosing
+# The cat that I keep losing
 
 She is the reason I started this project. Isn't she cute?
 
@@ -39,7 +39,7 @@ She is the reason I started this project. Isn't she cute?
 
 # Requirements
 
-In order to be able to run this project you need to have Python 3.10+ and a GPU.
+To be able to run this project you need to have Python 3.10+ and a GPU.
 
 
 # Setup
